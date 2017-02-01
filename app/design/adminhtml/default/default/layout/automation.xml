@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<layout version="0.1.0">
+    <adminhtml_facebook_group_grid>
+        <reference name="root">
+            <block type="deven_automation/adminhtml_facebook_group_grid" name="root" output="toHtml" />
+        </reference>
+    </adminhtml_facebook_group_grid>
+    <adminhtml_facebook_group_edit>
+        <reference name="content">
+            <block type="deven_automation/adminhtml_facebook_group_edit" name="new_type_tabs" />
+        </reference>
+    </adminhtml_facebook_group_edit>
+    <adminhtml_facebook_post_edit>
+        <reference name="content">
+            <block type="deven_automation/adminhtml_facebook_post_edit" name="new_type_tabs" />
+        </reference>
+    </adminhtml_facebook_post_edit>
+    <adminhtml_facebook_page_grid>
+        <reference name="root">
+            <block type="deven_automation/adminhtml_facebook_page_grid" name="root" output="toHtml" />
+        </reference>
+    </adminhtml_facebook_page_grid>
+    <adminhtml_pinterest_board_grid>
+        <reference name="root">
+            <block type="deven_automation/adminhtml_pinterest_board_grid" name="root" output="toHtml" />
+        </reference>
+    </adminhtml_pinterest_board_grid>
+    <adminhtml_pinterest_board_edit>
+        <reference name="content">
+            <block type="deven_automation/adminhtml_pinterest_board_edit" name="new_type_tabs" />
+        </reference>
+    </adminhtml_pinterest_board_edit>
+    <adminhtml_pinterest_pin_edit>
+        <reference name="content">
+            <block type="deven_automation/adminhtml_pinterest_pin_edit" name="new_type_tabs" />
+        </reference>
+    </adminhtml_pinterest_pin_edit>
+</layout>
