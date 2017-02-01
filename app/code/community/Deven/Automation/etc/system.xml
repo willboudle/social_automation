@@ -1,0 +1,1593 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <tabs>
+        <deven>
+            <label>Deven</label>
+            <sort_order>400</sort_order>
+        </deven>
+    </tabs>
+    <sections>
+        <automation translate="label" module="deven_automation">
+            <label>Social Automation</label>
+            <tab>deven</tab>
+            <sort_order>50</sort_order>
+            <show_in_default>1</show_in_default>
+            <show_in_website>1</show_in_website>
+            <show_in_store>1</show_in_store>
+            <groups>
+                <facebook translate="label">
+                    <label>Facebook Configuration</label>
+                    <sort_order>1</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <client_id translate="label" module="deven_automation">
+                            <label>Facebook App ID</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                            <validate>required-entry</validate>
+                        </client_id>
+                        <client_secret translate="label" module="deven_automation">
+                            <label>Facebook App Secret</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                            <validate>required-entry</validate>
+                        </client_secret>
+                        <redirect_uri>
+                            <label>Redirect URI</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>34</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                            <validate>required-entry</validate>
+                        </redirect_uri>
+                        <status translate="label" module="deven_automation">
+                            <label>Status</label>
+                            <frontend_type>hidden</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><model>deven_automation/adminhtml_system_config_source_facebook_comment</model></comment>
+                            <depends><enabled>1</enabled></depends>
+                        </status>
+                        <post_on_page translate="label">
+                            <label>Post on Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </post_on_page>
+                        <!--<page_info translate="label">
+                            <label>Page Information</label>
+                            <frontend_type>hidden</frontend_type>
+                            <sort_order>45</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment><model>deven_autopost/adminhtml_system_config_source_facebook_page_comment</model></comment>
+                            <depends>
+                                <post_on_page>1</post_on_page>
+                                <enabled>1</enabled>
+                            </depends>
+                        </page_info>-->
+                        <post_on_both translate="label">
+                            <label>Post on both Account and Page</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>46</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <comment>Default is only post on page.</comment>
+                            <depends>
+                                <post_on_page>1</post_on_page>
+                                <enabled>1</enabled>
+                            </depends>
+                        </post_on_both>
+                        <authorize translate="label">
+                            <frontend_type>button</frontend_type>
+                            <frontend_model>deven_automation/adminhtml_facebook_config_authorize</frontend_model>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </authorize>
+
+                        <!-- Auto Post New Product Settings-->
+
+                        <autopost_new_product_heading translate="label">
+                            <label>Auto Post New Product Setting</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </autopost_new_product_heading>
+                        <autopost_new_product translate="label">
+                            <label>Auto Post New Product</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </autopost_new_product>
+                        <autopost_new_product_on_all_groups translate="label">
+                            <label>Auto Post New Product on All Groups</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </autopost_new_product_on_all_groups>
+                        <new_product_type translate="label">
+                            <label>Product Type</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_type</source_model>
+                            <sort_order>76</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                            </depends>
+                        </new_product_type>
+                        <new_product_visibility translate="label">
+                            <label>Product Visibility</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_visibility</source_model>
+                            <sort_order>77</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                            </depends>
+                        </new_product_visibility>
+                        <new_product_display_product_name translate="label">
+                            <label>Display Product Name on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                            </depends>
+                        </new_product_display_product_name>
+                        <new_product_display_short_description translate="label">
+                            <label>Display Product Short Description on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                            </depends>
+                        </new_product_display_short_description>
+                        <new_product_display_sku translate="label">
+                            <label>Display SKU on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                            </depends>
+                        </new_product_display_sku>
+                        <new_product_display_price translate="label">
+                            <label>Display Price on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                            </depends>
+                        </new_product_display_price>
+                        <new_product_tax translate="label">
+                            <label>Calculate Tax</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                                <new_product_display_price>1</new_product_display_price>
+                            </depends>
+                        </new_product_tax>
+                        <new_product_display_url translate="label">
+                            <label>Display Url on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                            </depends>
+                        </new_product_display_url>
+                        <new_product_shorten_url translate="label">
+                            <label>Shorten URL with Tinyurl.com</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>115</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                                <new_product_display_url>1</new_product_display_url>
+                            </depends>
+                        </new_product_shorten_url>
+                        <new_product_upload_image translate="label">
+                            <label>Upload Product Image</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                            </depends>
+                        </new_product_upload_image>
+                        <new_product_pre_text translate="label" module="deven_automation">
+                            <label>Pre Text on Status</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopost_new_product>1</autopost_new_product>
+                            </depends>
+                            <comment>It's a short text before your product information.</comment>
+                        </new_product_pre_text>
+
+                        <!-- Post Multiple Product Settings-->
+
+                        <update_multiple_product_on_facebook_heading translate="label">
+                            <label>Post Multiple Product on Facebook Setting</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </update_multiple_product_on_facebook_heading>
+                        <update_multiple_product_on_facebook>
+                            <label>Update Multiple Product on Facebook</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </update_multiple_product_on_facebook>
+                        <update_multiple_product_on_all_groups translate="label">
+                            <label>Auto Post Multiple Product on All Groups</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>153</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </update_multiple_product_on_all_groups>
+                        <multiple_product_type translate="label">
+                            <label>Product Type</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_type</source_model>
+                            <sort_order>154</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </multiple_product_type>
+                        <multiple_product_visibility translate="label">
+                            <label>Product Visibility</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_visibility</source_model>
+                            <sort_order>155</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </multiple_product_visibility>
+                        <limited_number translate="label">
+                            <label>Maximum Number of Statuses</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_facebook_number</source_model>
+                            <sort_order>156</sort_order>
+                            <comment>Default is 20</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </limited_number>
+                        <multiple_product_display_product_name translate="label">
+                            <label>Display Product Name on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </multiple_product_display_product_name>
+
+                        <!-- added -->
+                         <multiple_product_display_band_name translate="label">
+                            <label>Display Band Name on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>165</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </multiple_product_display_band_name>
+                        <!--  -->
+                        
+                        <multiple_product_display_short_description translate="label">
+                            <label>Display Product Short Description on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </multiple_product_display_short_description>
+                        <multiple_product_display_sku translate="label">
+                            <label>Display SKU on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>170</sort_order>\
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </multiple_product_display_sku>
+                        <multiple_product_display_price translate="label">
+                            <label>Display Price on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>175</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </multiple_product_display_price>
+                        <multiple_product_tax translate="label">
+                            <label>Calculate Tax</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                                <multiple_product_display_price>1</multiple_product_display_price>
+                            </depends>
+                        </multiple_product_tax>
+                        <multiple_product_display_url translate="label">
+                            <label>Display Url on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </multiple_product_display_url>
+                        <multiple_product_shorten_url translate="label">
+                            <label>Shorten URL with Tinyurl.com</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>195</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                                <multiple_product_display_url>1</multiple_product_display_url>
+                            </depends>
+                        </multiple_product_shorten_url>
+                        <multiple_product_upload_image translate="label">
+                            <label>Upload Product Image</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                        </multiple_product_upload_image>
+                        <multiple_product_pre_text translate="label" module="deven_automation">
+                            <label>Pre Text on Status</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_facebook>1</update_multiple_product_on_facebook>
+                            </depends>
+                            <comment>It's a short text before your product information.</comment>
+                        </multiple_product_pre_text>
+
+                        <!-- Post multiple blog articles-->
+
+                        <post_multiple_articles_on_facebook_heading translate="label">
+                            <label>Post Multiple Blog Articles on Facebook Setting</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </post_multiple_articles_on_facebook_heading>
+                        <post_multiple_articles_on_facebook>
+                            <label>Post Multiple Blog Articles on Facebook</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </post_multiple_articles_on_facebook>
+                        <post_multiple_articles_on_all_groups translate="label">
+                            <label>Auto Post Multiple Articles on All Groups</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>235</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <post_multiple_articles_on_facebook>1</post_multiple_articles_on_facebook>
+                            </depends>
+                        </post_multiple_articles_on_all_groups>
+                        <limited_number_articles translate="label">
+                            <label>Maximum Number of Article Statuses</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_facebook_number</source_model>
+                            <sort_order>240</sort_order>
+                            <comment>Default is 20</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <post_multiple_articles_on_facebook>1</post_multiple_articles_on_facebook>
+                            </depends>
+                        </limited_number_articles>
+                        <just_post_multiple_articles_title_and_content translate="label">
+                            <label>Just Post Articles Title and Content</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>250</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <post_multiple_articles_on_facebook>1</post_multiple_articles_on_facebook>
+                            </depends>
+                        </just_post_multiple_articles_title_and_content>
+                        <post_multiple_articles_title translate="label">
+                            <label>Display Article Title on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>260</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <just_post_multiple_articles_title_and_content>0</just_post_multiple_articles_title_and_content>
+                                <post_multiple_articles_on_facebook>1</post_multiple_articles_on_facebook>
+                            </depends>
+                        </post_multiple_articles_title>
+                        <post_multiple_articles_short_description translate="label">
+                            <label>Display Article Short Description</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <just_post_multiple_articles_title_and_content>0</just_post_multiple_articles_title_and_content>
+                                <post_multiple_articles_on_facebook>1</post_multiple_articles_on_facebook>
+                            </depends>
+                        </post_multiple_articles_short_description>
+                        <post_multiple_articles_display_url translate="label">
+                            <label>Display Url on Status</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>280</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <just_post_multiple_articles_title_and_content>0</just_post_multiple_articles_title_and_content>
+                                <post_multiple_articles_on_facebook>1</post_multiple_articles_on_facebook>
+                            </depends>
+                        </post_multiple_articles_display_url>
+                        <post_multiple_articles_shorten_url translate="label">
+                            <label>Shorten URL with Tinyurl.com</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>290</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <just_post_multiple_articles_title_and_content>0</just_post_multiple_articles_title_and_content>
+                                <post_multiple_articles_on_facebook>1</post_multiple_articles_on_facebook>
+                                <post_multiple_articles_display_url>1</post_multiple_articles_display_url>
+                            </depends>
+                        </post_multiple_articles_shorten_url>
+
+                        <!--Scheduled Post Configuration-->
+                        <scheduled_post_heading translate="label">
+                            <label>Scheduled Post</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </scheduled_post_heading>
+                        <enabled_autopost_randomly_product translate="label">
+                            <label>Enable Auto Post Randomly Product</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </enabled_autopost_randomly_product>
+                        <post_at_time_frequency translate="label">
+                            <label>Post at fixed time</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autopost_randomly_product>1</enabled_autopost_randomly_product>
+                            </depends>
+                        </post_at_time_frequency>
+                        <every_time translate="label">
+                            <label>Auto post every</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_facebook_scheduled</source_model>
+                            <backend_model>deven_automation/adminhtml_system_config_backend_facebook_time_cron</backend_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autopost_randomly_product>1</enabled_autopost_randomly_product>
+                                <post_at_time_frequency>0</post_at_time_frequency>
+                            </depends>
+                        </every_time>
+                        <start_time translate="label">
+                            <label>Start Time</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autopost_randomly_product>1</enabled_autopost_randomly_product>
+                                <post_at_time_frequency>1</post_at_time_frequency>
+                            </depends>
+                        </start_time>
+                        <frequency translate="label">
+                            <label>Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cron_frequency</source_model>
+                            <backend_model>deven_automation/adminhtml_system_config_backend_facebook_frequency_cron</backend_model>
+                            <sort_order>350</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autopost_randomly_product>1</enabled_autopost_randomly_product>
+                                <post_at_time_frequency>1</post_at_time_frequency>
+                            </depends>
+                        </frequency>
+                    </fields>
+                </facebook>
+                <twitter translate="label" module="deven_automation">
+                    <label>Twitter Configuration</label>
+                    <sort_order>2</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <client_id translate="label" module="deven_automation">
+                            <label>API Key</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>20</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                            <validate>required-entry</validate>
+                        </client_id>
+                        <client_secret translate="label" module="deven_automation">
+                            <label>API Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>30</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                            <validate>required-entry</validate>
+                        </client_secret>
+                        <oauth_token translate="label" module="deven_automation">
+                            <label>OAuth Token</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>40</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                            <validate>required-entry</validate>
+                        </oauth_token>
+                        <oauth_token_secret translate="label" module="deven_automation">
+                            <label>OAuth Token Secret</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>50</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                            <validate>required-entry</validate>
+                        </oauth_token_secret>
+                        <autotweet_new_product_heading translate="label">
+                            <label>Auto Tweet New Product Setting</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </autotweet_new_product_heading>
+                        <autotweet_new_product translate="label">
+                            <label>Auto Tweet New Product</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </autotweet_new_product>
+                        <new_product_type translate="label">
+                            <label>Product Type</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_type</source_model>
+                            <sort_order>76</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autotweet_new_product>1</autotweet_new_product>
+                            </depends>
+                        </new_product_type>
+                        <new_product_visibility translate="label">
+                            <label>Product Visibility</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_visibility</source_model>
+                            <sort_order>77</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autotweet_new_product>1</autotweet_new_product>
+                            </depends>
+                        </new_product_visibility>
+                        <new_product_display_product_name translate="label">
+                            <label>Display Product Name on Tweet</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autotweet_new_product>1</autotweet_new_product>
+                            </depends>
+                        </new_product_display_product_name>
+                        <new_product_display_sku translate="label">
+                            <label>Display SKU on Tweet</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autotweet_new_product>1</autotweet_new_product>
+                            </depends>
+                        </new_product_display_sku>
+                        <new_product_display_price translate="label">
+                            <label>Display Price on Tweet</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autotweet_new_product>1</autotweet_new_product>
+                            </depends>
+                        </new_product_display_price>
+                        <new_product_tax translate="label">
+                            <label>Calculate Tax</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <new_product_display_price>1</new_product_display_price>
+                            </depends>
+                        </new_product_tax>
+                        <new_product_display_url translate="label">
+                            <label>Display Url on Tweet</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>110</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autotweet_new_product>1</autotweet_new_product>
+                            </depends>
+                        </new_product_display_url>
+                        <new_product_upload_image translate="label">
+                            <label>Upload Product Image</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>120</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autotweet_new_product>1</autotweet_new_product>
+                            </depends>
+                        </new_product_upload_image>
+                        <new_product_pre_text translate="label" module="deven_automation">
+                            <label>Pre Text on Tweet</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autotweet_new_product>1</autotweet_new_product>
+                            </depends>
+                            <comment>It's a short text before your product information. Please keep your Tweet less than 140 characters. You can put mention and hashtag in this field.</comment>
+                        </new_product_pre_text>
+                        <update_multiple_product_on_twitter_heading translate="label">
+                            <label>Update Multiple Product on Twitter Setting</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </update_multiple_product_on_twitter_heading>
+                        <update_multiple_product_on_twitter>
+                            <label>Update Multiple Product on Twitter</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </update_multiple_product_on_twitter>
+                        <multiple_product_type translate="label">
+                            <label>Product Type</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_type</source_model>
+                            <sort_order>154</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_twitter>1</update_multiple_product_on_twitter>
+                            </depends>
+                        </multiple_product_type>
+                        <multiple_product_visibility translate="label">
+                            <label>Product Visibility</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_visibility</source_model>
+                            <sort_order>155</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_twitter>1</update_multiple_product_on_twitter>
+                            </depends>
+                        </multiple_product_visibility>
+                        <multiple_product_display_product_name translate="label">
+                            <label>Display Product Name on Tweet</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_twitter>1</update_multiple_product_on_twitter>
+                            </depends>
+                        </multiple_product_display_product_name>
+                        <!-- added -->
+                        <multiple_product_display_band_name translate="label">
+                            <label>Display Band Name as Hashtag</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>165</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_twitter>1</update_multiple_product_on_twitter>
+                            </depends>
+                        </multiple_product_display_band_name>
+                        <!--  -->
+                        <multiple_product_display_sku translate="label">
+                            <label>Display SKU on Tweet</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>170</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_twitter>1</update_multiple_product_on_twitter>
+                            </depends>
+                        </multiple_product_display_sku>
+                        <multiple_product_display_price translate="label">
+                            <label>Display Price on Tweet</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>175</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_twitter>1</update_multiple_product_on_twitter>
+                            </depends>
+                        </multiple_product_display_price>
+                        <multiple_product_tax translate="label">
+                            <label>Calculate Tax</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <multiple_product_display_price>1</multiple_product_display_price>
+                            </depends>
+                        </multiple_product_tax>
+                        <multiple_product_display_url translate="label">
+                            <label>Display Url on Tweet</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>190</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_twitter>1</update_multiple_product_on_twitter>
+                            </depends>
+                        </multiple_product_display_url>
+                        <multiple_product_upload_image translate="label">
+                            <label>Upload Product Image</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>200</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_twitter>1</update_multiple_product_on_twitter>
+                            </depends>
+                        </multiple_product_upload_image>
+                        <multiple_product_pre_text translate="label" module="deven_automation">
+                            <label>Pre Text on Tweet</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <update_multiple_product_on_twitter>1</update_multiple_product_on_twitter>
+                            </depends>
+                            <comment>It's a short text before your product information. Please keep your Tweet less than 140 characters. You can put mention and hashtag in this field.</comment>
+                        </multiple_product_pre_text>
+
+                        <!--Scheduled Tweet Configuration-->
+                        <scheduled_tweet_heading translate="label">
+                            <label>Scheduled Tweet</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </scheduled_tweet_heading>
+                        <enabled_autotweet_randomly_product translate="label">
+                            <label>Enable Auto Tweet Randomly Product</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </enabled_autotweet_randomly_product>
+                        <update_tweet_at_time_frequency translate="label">
+                            <label>Update tweet at fixed time</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autotweet_randomly_product>1</enabled_autotweet_randomly_product>
+                            </depends>
+                        </update_tweet_at_time_frequency>
+                        <tweet_every_time translate="label">
+                            <label>Auto tweet every</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_twitter_scheduled</source_model>
+                            <backend_model>deven_automation/adminhtml_system_config_backend_twitter_time_cron</backend_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autotweet_randomly_product>1</enabled_autotweet_randomly_product>
+                                <update_tweet_at_time_frequency>0</update_tweet_at_time_frequency>
+                            </depends>
+                        </tweet_every_time>
+                        <tweet_start_time translate="label">
+                            <label>Start Time</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autotweet_randomly_product>1</enabled_autotweet_randomly_product>
+                                <update_tweet_at_time_frequency>1</update_tweet_at_time_frequency>
+                            </depends>
+                        </tweet_start_time>
+                        <tweet_frequency translate="label">
+                            <label>Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cron_frequency</source_model>
+                            <backend_model>deven_automation/adminhtml_system_config_backend_twitter_frequency_cron</backend_model>
+                            <sort_order>350</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autotweet_randomly_product>1</enabled_autotweet_randomly_product>
+                                <update_tweet_at_time_frequency>1</update_tweet_at_time_frequency>
+                            </depends>
+                        </tweet_frequency>
+                    </fields>
+                </twitter>
+                <pinterest translate="label">
+                    <label>Pinterest Configuration</label>
+                    <sort_order>3</sort_order>
+                    <show_in_default>1</show_in_default>
+                    <show_in_website>1</show_in_website>
+                    <show_in_store>1</show_in_store>
+                    <fields>
+                        <enabled translate="label">
+                            <label>Enabled</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>10</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                        </enabled>
+                        <access_token translate="label" module="deven_automation">
+                            <label>Pinterest Access Token</label>
+                            <frontend_type>password</frontend_type>
+                            <sort_order>35</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                            <validate>required-entry</validate>
+                        </access_token>
+
+                        <!-- Auto Pin New Product Settings-->
+
+                        <autopin_new_product_heading translate="label">
+                            <label>Auto Pin New Product Setting</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>60</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </autopin_new_product_heading>
+                        <autopin_new_product translate="label">
+                            <label>Auto Pin New Product</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>70</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </autopin_new_product>
+                        <new_product_boards translate="label">
+                            <label>Choose Boards to auto pin new product</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>deven_automation/adminhtml_source_pinterest_board</source_model>
+                            <sort_order>75</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopin_new_product>1</autopin_new_product>
+                            </depends>
+                        </new_product_boards>
+                        <new_product_type translate="label">
+                            <label>Product Type</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_type</source_model>
+                            <sort_order>76</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopin_new_product>1</autopin_new_product>
+                            </depends>
+                        </new_product_type>
+                        <new_product_visibility translate="label">
+                            <label>Product Visibility</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_visibility</source_model>
+                            <sort_order>77</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopin_new_product>1</autopin_new_product>
+                            </depends>
+                        </new_product_visibility>
+                        <new_product_display_product_name translate="label">
+                            <label>Display Product Name on Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>80</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopin_new_product>1</autopin_new_product>
+                            </depends>
+                        </new_product_display_product_name>
+                        <new_product_display_short_description translate="label">
+                            <label>Display Product Short Description on Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>85</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopin_new_product>1</autopin_new_product>
+                            </depends>
+                        </new_product_display_short_description>
+                        <new_product_display_sku translate="label">
+                            <label>Display SKU on Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>90</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopin_new_product>1</autopin_new_product>
+                            </depends>
+                        </new_product_display_sku>
+                        <new_product_display_price translate="label">
+                            <label>Display Price on Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>95</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopin_new_product>1</autopin_new_product>
+                            </depends>
+                        </new_product_display_price>
+                        <new_product_tax translate="label">
+                            <label>Calculate Tax</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>100</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopin_new_product>1</autopin_new_product>
+                                <new_product_display_price>1</new_product_display_price>
+                            </depends>
+                        </new_product_tax>
+                        <new_product_pre_text translate="label" module="deven_automation">
+                            <label>Pre Text on Pin</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>130</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <autopin_new_product>1</autopin_new_product>
+                            </depends>
+                            <comment>It's a short text before your product information.</comment>
+                        </new_product_pre_text>
+
+                        <!-- Pin Multiple Product Settings-->
+
+                        <pin_multiple_product_on_pinterest_heading translate="label">
+                            <label>Pin Multiple Product on Pinterest Setting</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>140</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </pin_multiple_product_on_pinterest_heading>
+                        <pin_multiple_product_on_pinterest>
+                            <label>Pin Multiple Product on Pinterest</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>150</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </pin_multiple_product_on_pinterest>
+                        <multiple_product_type translate="label">
+                            <label>Product Type</label>
+                            <frontend_type>multiselect</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_type</source_model>
+                            <sort_order>154</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_product_on_pinterest>1</pin_multiple_product_on_pinterest>
+                            </depends>
+                        </multiple_product_type>
+                        <multiple_product_visibility translate="label">
+                            <label>Product Visibility</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_catalog_product_visibility</source_model>
+                            <sort_order>155</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_product_on_pinterest>1</pin_multiple_product_on_pinterest>
+                            </depends>
+                        </multiple_product_visibility>
+                        <limited_number translate="label">
+                            <label>Maximum Number of Pins</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_pinterest_number</source_model>
+                            <sort_order>156</sort_order>
+                            <comment>Default is 20</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_product_on_pinterest>1</pin_multiple_product_on_pinterest>
+                            </depends>
+                        </limited_number>
+                        <multiple_product_display_product_name translate="label">
+                            <label>Display Product Name on Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_product_on_pinterest>1</pin_multiple_product_on_pinterest>
+                            </depends>
+                        </multiple_product_display_product_name>
+                        <multiple_product_display_short_description translate="label">
+                            <label>Display Product Short Description on Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>160</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_product_on_pinterest>1</pin_multiple_product_on_pinterest>
+                            </depends>
+                        </multiple_product_display_short_description>
+                        <multiple_product_display_sku translate="label">
+                            <label>Display SKU on Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>170</sort_order>\
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_product_on_pinterest>1</pin_multiple_product_on_pinterest>
+                            </depends>
+                        </multiple_product_display_sku>
+                        <multiple_product_display_price translate="label">
+                            <label>Display Price on Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>175</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_product_on_pinterest>1</pin_multiple_product_on_pinterest>
+                            </depends>
+                        </multiple_product_display_price>
+                        <multiple_product_tax translate="label">
+                            <label>Calculate Tax</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>180</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_product_on_pinterest>1</pin_multiple_product_on_pinterest>
+                                <multiple_product_display_price>1</multiple_product_display_price>
+                            </depends>
+                        </multiple_product_tax>
+                        <multiple_product_pre_text translate="label" module="deven_automation">
+                            <label>Pre Text on Pin</label>
+                            <frontend_type>text</frontend_type>
+                            <sort_order>210</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_product_on_pinterest>1</pin_multiple_product_on_pinterest>
+                            </depends>
+                            <comment>It's a short text before your product information.</comment>
+                        </multiple_product_pre_text>
+
+                        <!-- Pin multiple blog articles-->
+
+                        <!--<pin_multiple_articles_on_pinterest_heading translate="label">
+                            <label>Pin Multiple Blog Articles on Pinterest Setting</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>220</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </pin_multiple_articles_on_pinterest_heading>
+                        <pin_multiple_articles_on_pinterest>
+                            <label>Pin Multiple Blog Articles on Pinterest</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>230</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </pin_multiple_articles_on_pinterest>
+                        <limited_number_articles translate="label">
+                            <label>Maximum Number of Article Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_pinterest_number</source_model>
+                            <sort_order>240</sort_order>
+                            <comment>Default is 20</comment>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_articles_on_pinterest>1</pin_multiple_articles_on_pinterest>
+                            </depends>
+                        </limited_number_articles>
+                        <just_pin_multiple_articles_title_and_content translate="label">
+                            <label>Just Pin Articles Title and Content</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>250</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <pin_multiple_articles_on_pinterest>1</pin_multiple_articles_on_pinterest>
+                            </depends>
+                        </just_pin_multiple_articles_title_and_content>
+                        <pin_multiple_articles_title translate="label">
+                            <label>Display Article Title on Pin</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>260</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <just_pin_multiple_articles_title_and_content>0</just_pin_multiple_articles_title_and_content>
+                                <pin_multiple_articles_on_pinterest>1</pin_multiple_articles_on_pinterest>
+                            </depends>
+                        </pin_multiple_articles_title>
+                        <pin_multiple_articles_short_description translate="label">
+                            <label>Display Article Short Description</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>270</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>1</show_in_website>
+                            <show_in_store>1</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <just_pin_multiple_articles_title_and_content>0</just_pin_multiple_articles_title_and_content>
+                                <pin_multiple_articles_on_pinterest>1</pin_multiple_articles_on_pinterest>
+                            </depends>
+                        </pin_multiple_articles_short_description>-->
+
+                        <!--Scheduled Pin Configuration-->
+                        <scheduled_pin_heading translate="label">
+                            <label>Scheduled Pin</label>
+                            <frontend_model>adminhtml/system_config_form_field_heading</frontend_model>
+                            <sort_order>300</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </scheduled_pin_heading>
+                        <enabled_autopin_randomly_product translate="label">
+                            <label>Enable Auto Pin Randomly Product</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>310</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends><enabled>1</enabled></depends>
+                        </enabled_autopin_randomly_product>
+                        <pin_at_time_frequency translate="label">
+                            <label>Pin at fixed time</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_yesno</source_model>
+                            <sort_order>320</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autopin_randomly_product>1</enabled_autopin_randomly_product>
+                            </depends>
+                        </pin_at_time_frequency>
+                        <every_time translate="label">
+                            <label>Auto pin every</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>deven_automation/adminhtml_system_config_source_pinterest_scheduled</source_model>
+                            <backend_model>deven_automation/adminhtml_system_config_backend_pinterest_time_cron</backend_model>
+                            <sort_order>330</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autopin_randomly_product>1</enabled_autopin_randomly_product>
+                                <pin_at_time_frequency>0</pin_at_time_frequency>
+                            </depends>
+                        </every_time>
+                        <start_time translate="label">
+                            <label>Start Time</label>
+                            <frontend_type>time</frontend_type>
+                            <sort_order>340</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autopin_randomly_product>1</enabled_autopin_randomly_product>
+                                <pin_at_time_frequency>1</pin_at_time_frequency>
+                            </depends>
+                        </start_time>
+                        <frequency translate="label">
+                            <label>Frequency</label>
+                            <frontend_type>select</frontend_type>
+                            <source_model>adminhtml/system_config_source_cron_frequency</source_model>
+                            <backend_model>deven_automation/adminhtml_system_config_backend_pinterest_frequency_cron</backend_model>
+                            <sort_order>350</sort_order>
+                            <show_in_default>1</show_in_default>
+                            <show_in_website>0</show_in_website>
+                            <show_in_store>0</show_in_store>
+                            <depends>
+                                <enabled>1</enabled>
+                                <enabled_autopin_randomly_product>1</enabled_autopin_randomly_product>
+                                <pin_at_time_frequency>1</pin_at_time_frequency>
+                            </depends>
+                        </frequency>
+                    </fields>
+                </pinterest>
+            </groups>
+        </automation>
+    </sections>
+</config>

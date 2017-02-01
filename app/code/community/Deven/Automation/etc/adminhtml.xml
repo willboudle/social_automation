@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <menu>
+        <deven_automation translate="title" module="deven_automation">
+            <title>Social Automation</title>
+            <sort_order>60</sort_order>
+            <children>
+                <facebook>
+                    <title>Facebook</title>
+                    <sort_order>1</sort_order>
+                    <children>
+                        <facebook_post_status module="deven_automation">
+                            <title>Post New Status</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/facebook_post/new</action>
+                        </facebook_post_status>
+                        <facebook_group module="deven_automation">
+                            <title>Manage Groups</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/facebook_group/index</action>
+                        </facebook_group>
+                        <facebook_page module="deven_automation">
+                            <title>Manage Pages</title>
+                            <sort_order>20</sort_order>
+                            <action>adminhtml/facebook_page/index</action>
+                        </facebook_page>
+                    </children>
+                </facebook>
+                <pinterest>
+                    <title>Pinterest</title>
+                    <sort_order>2</sort_order>
+                    <children>
+                        <pin_new module="deven_automation">
+                            <title>Create New Pin</title>
+                            <sort_order>1</sort_order>
+                            <action>adminhtml/pinterest_pin/new</action>
+                        </pin_new>
+                        <pinterest_board module="deven_automation">
+                            <title>Manage Boards</title>
+                            <sort_order>10</sort_order>
+                            <action>adminhtml/pinterest_board/index</action>
+                        </pinterest_board>
+                    </children>
+                </pinterest>
+                <social_automation_configuration module="deven_automation">
+                    <title>Social Automation Configuration</title>
+                    <sort_order>30</sort_order>
+                    <action>adminhtml/system_config/edit/section/automation</action>
+                </social_automation_configuration>
+            </children>
+        </deven_automation>
+    </menu>
+    <acl>
+        <resources>
+            <all>
+                <title>Allow everything</title>
+            </all>
+            <admin>
+                <children>
+                    <system>
+                        <children>
+                            <config>
+                                <children>
+                                    <automation translate="title" module="deven_automation">
+                                        <title>Social Automation Section</title>
+                                        <sort_order>20</sort_order>
+                                    </automation>
+                                </children>
+                            </config>
+                        </children>
+                    </system>
+                    <deven_automation translate="title" module="deven_automation">
+                        <title>Social Automation</title>
+                        <sort_order>999</sort_order>
+                        <children>
+                            <facebook>
+                                <title>Facebook</title>
+                                <children>
+                                    <facebook_post_status>
+                                        <title>Post Custom Status</title>
+                                        <sort_order>20</sort_order>
+                                    </facebook_post_status>
+                                    <facebook_group>
+                                        <title>Manage Groups</title>
+                                        <sort_order>30</sort_order>
+                                    </facebook_group>
+                                    <facebook_page>
+                                        <title>Manage Pages</title>
+                                        <sort_order>40</sort_order>
+                                    </facebook_page>
+                                </children>
+                            </facebook>
+                            <pinterest>
+                                <title>Pinterest</title>
+                                <children>
+                                    <pin_new>
+                                        <title>Pin custom</title>
+                                        <sort_order>20</sort_order>
+                                    </pin_new>
+                                    <pinterest_board>
+                                        <title>Manage Boards</title>
+                                        <sort_order>30</sort_order>
+                                    </pinterest_board>
+                                </children>
+                            </pinterest>
+                            <social_automation_configuration>
+                                <title>Social Automation Configuration</title>
+                                <sort_order>40</sort_order>
+                            </social_automation_configuration>
+                        </children>
+                    </deven_automation>
+                </children>
+            </admin>
+        </resources>
+    </acl>
+</config>

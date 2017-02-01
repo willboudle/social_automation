@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<config>
+    <modules>
+        <Deven_Automation>
+            <version>1.0.0</version>
+        </Deven_Automation>
+    </modules>
+
+    <global>
+        <models>
+            <deven_automation>
+                <class>Deven_Automation_Model</class>
+                <resourceModel>deven_automation_resource</resourceModel>
+            </deven_automation>
+            <deven_automation_resource>
+                <class>Deven_Automation_Model_Resource</class>
+                <entities>
+                    <facebook_group>
+                        <table>deven_automation_facebook_group</table>
+                    </facebook_group>
+                    <facebook_page>
+                        <table>deven_automation_facebook_page</table>
+                    </facebook_page>
+                    <pinterest_board>
+                        <table>deven_automation_pinterest_board</table>
+                    </pinterest_board>
+                </entities>
+            </deven_automation_resource>
+        </models>
+
+        <helpers>
+            <deven_automation>
+                <class>Deven_Automation_Helper</class>
+            </deven_automation>
+        </helpers>
+
+        <blocks>
+            <deven_automation>
+                <class>Deven_Automation_Block</class>
+            </deven_automation>
+            <!--<adminhtml>
+                <rewrite>
+                    <catalog_product_grid>Deven_Autopost_Block_Catalog_Product_Grid</catalog_product_grid>
+                </rewrite>
+            </adminhtml>-->
+        </blocks>
+
+        <resources>
+            <deven_automation_setup>
+                <setup>
+                    <module>Deven_Automation</module>
+                </setup>
+                <connection>
+                    <use>core_setup</use>
+                </connection>
+            </deven_automation_setup>
+            <automation_write>
+                <connection>
+                    <use>core_write</use>
+                </connection>
+            </automation_write>
+            <automation_read>
+                <connection>
+                    <use>core_read</use>
+                </connection>
+            </automation_read>
+        </resources>
+
+    </global>
+
+    <default>
+        <automation>
+            <facebook>
+                <enabled>0</enabled>
+                <limited_number>20</limited_number>
+                <post_on_page>0</post_on_page>
+                <new_product_display_product_name>1</new_product_display_product_name>
+                <new_product_display_short_description>1</new_product_display_short_description>
+                <new_product_display_sku>1</new_product_display_sku>
+                <new_product_display_price>1</new_product_display_price>
+                <new_product_display_url>1</new_product_display_url>
+                <new_product_pre_text>Checkout our #awesome product </new_product_pre_text>
+                <multiple_product_display_product_name>1</multiple_product_display_product_name>
+                <multiple_product_display_short_description>1</multiple_product_display_short_description>
+                <multiple_product_display_sku>1</multiple_product_display_sku>
+                <multiple_product_display_price>1</multiple_product_display_price>
+                <multiple_product_display_url>1</multiple_product_display_url>
+                <multiple_product_pre_text>Checkout our #awesome product </multiple_product_pre_text>
+            </facebook>
+        </automation>
+    </default>
+
+    <admin>
+        <routers>
+            <adminhtml>
+                <args>
+                    <modules>
+                        <deven_automation before="Mage_Adminhtml">Deven_Automation_Adminhtml</deven_automation>
+                    </modules>
+                </args>
+            </adminhtml>
+            <blog_admin>
+                <args>
+                    <modules>
+                        <deven_automation before="AW_Blog">Deven_Automation</deven_automation>
+                    </modules>
+                </args>
+            </blog_admin>
+        </routers>
+    </admin>
+
+    <adminhtml>
+        <translate>
+            <modules>
+                <Deven_Automation>
+                    <files>
+                        <default>Deven_Automation.csv</default>
+                    </files>
+                </Deven_Automation>
+            </modules>
+        </translate>
+        <layout>
+            <updates>
+                <deven_automation module="deven_automation">
+                    <file>automation.xml</file>
+                </deven_automation>
+            </updates>
+        </layout>
+        <events>
+            <catalog_product_save_after>
+                <observers>
+                    <deven_automation>
+                        <type>singleton</type>
+                        <class>deven_automation/observer</class>
+                        <method>publishNewProduct</method>
+                    </deven_automation>
+                </observers>
+            </catalog_product_save_after>
+            <!--<ewmpaction_product_grid_prepare_massaction>
+                <observers>
+                    <deven_autopost_mass_action>
+                        <type>singleton</type>
+                        <class>deven_autopost/observer</class>
+                        <method>addMassAction</method>
+                    </deven_autopost_mass_action>
+                </observers>
+            </ewmpaction_product_grid_prepare_massaction>-->
+            <core_block_abstract_prepare_layout_before>
+                <observers>
+                    <deven_automation_core_block_abstract_prepare_layout_before>
+                        <class>deven_automation/observer</class>
+                        <method>addMassAction</method>
+                    </deven_automation_core_block_abstract_prepare_layout_before>
+                </observers>
+            </core_block_abstract_prepare_layout_before>
+        </events>
+    </adminhtml>
+
+    <crontab>
+        <jobs>
+            <autopost>
+                <run>
+                    <model>deven_automation/observer::postRandomlyProduct</model>
+                </run>
+            </autopost>
+            <autopin>
+                <run>
+                    <model>deven_automation/observer::pinRandomlyProduct</model>
+                </run>
+            </autopin>
+            <autotweet>
+                <run>
+                    <model>deven_automation/observer::tweetRandomlyProduct</model>
+                </run>
+            </autotweet>
+        </jobs>
+    </crontab>
+
+    <!--<frontend>
+        <routers>
+            <deven_autopost>
+                <use>standard</use>
+                <args>
+                    <module>Deven_Autopost</module>
+                    <frontName>autopost</frontName>
+                </args>
+            </deven_autopost>
+        </routers>
+    </frontend>-->
+
+</config>
