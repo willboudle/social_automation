@@ -30,7 +30,7 @@ class Deven_Automation_Helper_Facebook_Publisher extends Mage_Core_Helper_Abstra
         }
 
         if(Mage::helper('deven_automation/facebook')->hasMultipleProductShortDescription()) {
-            $message .= ' - ' . Mage::helper('deven_automation')->stripTags($product->getShortDescription());
+            $message .= '  ' . Mage::helper('deven_automation')->stripTags($product->getShortDescription());
         }
 
         if(Mage::helper('deven_automation/facebook')->hasMultipleProductSku()) {
@@ -44,7 +44,7 @@ class Deven_Automation_Helper_Facebook_Publisher extends Mage_Core_Helper_Abstra
                 $price = $product->getPrice();
             }
 
-            $message .= Mage::helper('deven_automation')->__(' - Price: '). Mage::helper('deven_automation')->getCurrencySymbol() . Mage::helper('deven_automation')->beautifyPrice($price);
+            $message .= Mage::helper('deven_automation')->__(' '). Mage::helper('deven_automation')->getCurrencySymbol() . Mage::helper('deven_automation')->beautifyPrice($price);
 
         }
 
