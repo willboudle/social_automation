@@ -284,12 +284,13 @@ class Deven_Automation_Model_Observer {
                 Mage::helper('deven_automation/facebook')->getEnableMultipleProductVisibility()
             ));
             $products->addFieldToFilter('type_id', $types);
+            $products->addFieldToFilter('is_in_stock');
             $products->getSelect()->order(new Zend_Db_Expr('RAND()'));
             $products->getSelect()->limit(1);
 
             foreach($products as $product) {
 
-                if($product->getStatus() == 1) {// && $product->getData('is_salable') == '1') {
+                if($product->getStatus() == 1) {
 
                     $message = Mage::helper('deven_automation/facebook_publisher')->generateMessage($product);
 
@@ -400,6 +401,7 @@ class Deven_Automation_Model_Observer {
                 Mage::helper('deven_automation/pinterest')->getEnableMultipleProductVisibility()
             ));
             $products->addFieldToFilter('type_id', $types);
+            $products->addFieldToFilter('is_in_stock');
             $products->getSelect()->order(new Zend_Db_Expr('RAND()'));
             $products->getSelect()->limit(1);
 
@@ -439,6 +441,7 @@ class Deven_Automation_Model_Observer {
                 Mage::helper('deven_automation/twitter')->getEnableMultipleProductVisibility()
             ));
             $products->addFieldToFilter('type_id', $types);
+            $products->addFieldToFilter('is_in_stock');
             $products->getSelect()->order(new Zend_Db_Expr('RAND()'));
             $products->getSelect()->limit(1);
             foreach($products as $product) {
