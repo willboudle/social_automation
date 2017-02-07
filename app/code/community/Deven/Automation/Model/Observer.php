@@ -297,8 +297,28 @@ class Deven_Automation_Model_Observer {
                     $coreUrl = Mage::getModel('core/url_rewrite');
                     $idPath = sprintf('product/%d', $product->getId());
                     $coreUrl->loadByIdPath($idPath);
+                    
+                    /*
+                    * check if only in web or bandstore to correct url
+                    */
+                    $categoryId = array_shift($product->getCategoryIds());
+                    $category = Mage::getModel('catalog/category')
+                        ->load($categoryId);
 
-                    $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB). $coreUrl->getRequestPath();
+                    $path = explode("/", $category->getPath());
+
+                    if (in_array('3', $path)) {
+                        $site = ''; 
+
+                    } elseif (in_array('195', $path)) {
+                        $site = 'bands/';
+
+                    } elseif (in_array('196', $path)) {
+                        $site = 'webstores/';
+                    }
+                
+                    $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB). $site .$coreUrl->getRequestPath(); 
+
 
                     $image = Mage::helper('catalog/image')->init($product, 'image');
 

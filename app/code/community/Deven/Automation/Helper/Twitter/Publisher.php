@@ -41,7 +41,28 @@ class Deven_Automation_Helper_Twitter_Publisher extends Mage_Core_Helper_Abstrac
             $idPath = sprintf('product/%d', $product->getId());
             $coreUrl->loadByIdPath($idPath);
 
-            $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB). $coreUrl->getRequestPath();
+             /*
+            * check if only in web or bandstore to correct url
+            */
+            $categoryId = array_shift($product->getCategoryIds());
+            $category = Mage::getModel('catalog/category')
+                ->load($categoryId);
+
+            $path = explode("/", $category->getPath());
+
+            if (in_array('3', $path)) {
+                $site = ''; 
+
+            } elseif (in_array('195', $path)) {
+                $site = 'bands/';
+
+            } elseif (in_array('196', $path)) {
+                $site = 'webstores/';
+            }
+        
+            $url = Mage::getBaseUrl(Mage_Core_Model_Store::URL_TYPE_WEB). $site .$coreUrl->getRequestPath();
+
+            
 
             $new_url = Mage::helper('deven_automation')->shortenUrl($url);
             $message .= ' '. $new_url;
